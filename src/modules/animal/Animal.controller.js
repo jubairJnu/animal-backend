@@ -24,26 +24,8 @@ const createAnimal = async (req, res) => {
 
 const getAnimal = async (req, res) => {
   try {
-    const result = await animalServices.getAnimalFromDB();
-    res.status(200).json({
-      success: true,
-      message: " retrived successfully",
-      data: result,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(error?.statusCode ? error.statusCode : 500).json({
-      success: false,
-      // error: error,
-      message: error?.message ? error.message : "something went wrong",
-    });
-  }
-};
-const getFilterAnimal = async (req, res) => {
-  try {
     const { categoryId } = req.query;
-    console.log(categoryId);
-    const result = await animalServices.getFilterAnimalFromDB(categoryId);
+    const result = await animalServices.getAnimalFromDB(categoryId);
     res.status(200).json({
       success: true,
       message: " retrived successfully",
@@ -65,6 +47,5 @@ module.exports = {
   animalControllers: {
     createAnimal,
     getAnimal,
-    getFilterAnimal,
   },
 };
