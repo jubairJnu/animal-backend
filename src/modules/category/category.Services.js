@@ -8,7 +8,7 @@ const createCategoryntoDB = async (payload) => {
 // get
 
 const getCategoryFromDB = async () => {
-  const result = await Category.findOne();
+  const result = await Category.find();
   return result;
 };
 

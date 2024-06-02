@@ -13,10 +13,7 @@ const port = 5000;
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-    , // Add your frontend origin here
-    ],
+    origin: ["http://localhost:3000", "https://animal-frontend.vercel.app"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,

@@ -9,16 +9,17 @@ const createAnimalntoDB = async (payload) => {
 // get
 
 const getAnimalFromDB = async () => {
-  const result = await Animal.findOne();
+  const result = await Animal.find();
   return result;
 };
 
 // filter product by category
 
-const getFilterAnimalFromDB = async (id) => {
-  const result = await Animal.findOne({
-    category: id,
-  });
+const getFilterAnimalFromDB = async (categoryId) => {
+  const categoryObjectId = new mongoose.Types.ObjectId(categoryId);
+
+  // Find animals with the given category
+  const result = await Animal.find({ category: categoryObjectId });
 
   return result;
 };

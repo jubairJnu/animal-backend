@@ -41,8 +41,9 @@ const getAnimal = async (req, res) => {
 };
 const getFilterAnimal = async (req, res) => {
   try {
-    const { id } = req.params;
-    const result = await animalServices.getFilterAnimalFromDB(id);
+    const { categoryId } = req.query;
+    console.log(categoryId);
+    const result = await animalServices.getFilterAnimalFromDB(categoryId);
     res.status(200).json({
       success: true,
       message: " retrived successfully",
